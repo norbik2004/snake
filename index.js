@@ -96,22 +96,22 @@ function checkIfLost() {
 }
 function steering() {
     window.addEventListener("keydown", function(event) {
-        if (event.key === "ArrowDown" && direction != "UP") {
+        if ((event.key === "ArrowDown" || event.key === "s") && direction != "UP") {
             direction = "DOWN";
             xVelocity = 0;
             yVelocity = unitSize;
         }
-        if (event.key === "ArrowRight" && direction != "LEFT") {
+        if ((event.key === "ArrowRight" || event.key === "d") && direction != "LEFT") {
             direction = "RIGHT";
             xVelocity = unitSize;
             yVelocity = 0;
         }
-        if (event.key === "ArrowLeft" && direction != "RIGHT") {
+        if ((event.key === "ArrowLeft" || event.key === "a") && direction != "RIGHT") {
             direction = "LEFT";
             xVelocity = -unitSize;
             yVelocity = 0;
         }
-        if (event.key === "ArrowUp" && direction != "DOWN") {
+        if ((event.key === "ArrowUp" || event.key === "w") && direction != "DOWN") {
             direction = "UP";
             xVelocity = 0;
             yVelocity = -unitSize;
