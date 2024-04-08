@@ -89,17 +89,22 @@ function paintfood(){
     ctx.strokeRect(foodX, foodY, unitSize, unitSize);
 }
 
-function checkiffoodeaten(){
-    if (foodX == snake[0].x & foodY == snake[0].y){
-        getfoodcords()
-        snake.push(snake[0].x + xVelocity, snake[0].yVelocity + yVelocity)
-        score += 1
+let foodEaten = false;
+
+function checkIfFoodEaten() {
+    if (foodX === snake[0].x && foodY === snake[0].y && !foodEaten) {
+        getfoodcords();
+        foodEaten = true;
+        snake.push({ x: snake[0].x + xVelocity, y: snake[0].y + yVelocity });
+        score += 1;
+    } else {
+        foodEaten = false; 
     }
 }
 
 const interval = setInterval(() => {
     checkIfLost();
-    checkiffoodeaten();
+    checkIfFoodEaten();
     console.log(snake.length, snake)
     if (!running) {
         clearInterval(interval);
@@ -110,6 +115,6 @@ const interval = setInterval(() => {
         paintfood()
     }
     scoreText.innerText = score
-}, 100);
+}, 150);
 getfoodcords()
 steering()
