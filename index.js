@@ -199,9 +199,9 @@ const startInterval = () => {
 };
 
 startInterval();
-
+getfoodcords()
 buttonReset.addEventListener("click", () => {
     restartGame();
 });
 
-getfoodcords()
+
