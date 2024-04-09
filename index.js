@@ -21,9 +21,7 @@ let snake = [
     {x:unitSize, y:0},
     {x:0, y:0}
 ];
-const backboardimg = new Image()
-backboardimg.src = "snake_textures/back_board_texture.png"
-ctx.drawImage(backboardimg,0, 0, gameBoard.width, gameBoard.height);
+
 
 // textures
 const snakeHeadPaths = {
@@ -205,3 +203,6 @@ buttonReset.addEventListener("click", () => {
 });
 
 
+const backboardimg = new Image()
+backboardimg.src = "snake_textures/back_board_texture.png"
+ctx.drawImage(backboardimg,0, 0, gameBoard.width, gameBoard.height);
