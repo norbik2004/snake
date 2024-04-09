@@ -116,23 +116,11 @@ function steering() {
         }
         if (event.key === "r") {
             restartGame();
+            direction = "RIGHT"
         }
     });
 }
 
-function checkIfLost(){
-    for(var i = snake.length -1; i>0; i--){
-        if(snake[i].x == snake[0].x & snake[i].y == snake[0].y){
-           running = false 
-        }
-    } 
-    if(snake[0].x == (gameWidth) || snake[0].x == (-unitSize)){
-        running = false
-    }
-    if(snake[0].y == gameHeight || snake[0].y == (-unitSize)){
-        running = false
-    }
-}
 
 function getfoodcords(){
         foodX = Math.floor(Math.random() * 20)  * unitSize
@@ -164,13 +152,13 @@ function checkIfFoodEaten() {
     if (foodX === snake[0].x && foodY === snake[0].y && !foodEaten) {
         getfoodcords();
         snake.forEach(snakePart => {
-            if(snakePart.x == foodX & snakePart.y == foodY){
+            while(snakePart.x == foodX & snakePart.y == foodY){
                 getfoodcords();
-                drawSnake()
+                console.log("food-changed")
             }
         })
         foodEaten = true;
-        snake.unshift({ x: snake[0].x + xVelocity, y: snake[0].y + yVelocity });
+        snake.push({ x: snake[0].x + xVelocity, y: snake[0].y + yVelocity });
         score += 1;
         scoreText.innerText = score
     } else {
@@ -193,7 +181,7 @@ const startInterval = () => {
             drawSnake();
             paintFood();
         }
-    }, 100);
+    }, 125);
 };
 
 startInterval();
