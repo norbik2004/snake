@@ -1,4 +1,3 @@
-made by me game called snake just in 2 days with custom textures try it on :
 https://norbik2004.github.io/snake/
 
 ![image](https://github.com/norbik2004/snake/assets/128638079/9bf8272d-6d48-460b-bdb8-36c6412eb5ee)
